@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — PAGE Africa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    .hero-clip{clip-path:polygon(0 0,100% 0,100% 92%,0 100%)}
+    .prog-cta{font-size:.8rem;font-weight:700;letter-spacing:.02em}
+    .fade-up{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
+    .fade-up.visible{opacity:1;transform:none}
+    .mission-line{background:linear-gradient(90deg,#C9307A,#F4880A);height:3px;border-radius:2px}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
+    .faq-answer.open{max-height:600px}
+    .faq-icon{transition:transform .3s ease;display:inline-block}
+    .faq-item.open .faq-icon{transform:rotate(45deg)}
+    .nav-dropdown{position:relative}
+    .nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 4px);left:50%;transform:translateX(-50%);background:#141D35;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:6px;min-width:200px;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+    .nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px}
+    .nav-dropdown-menu.open{display:block}
+    .nav-dropdown-menu a{display:block;padding:9px 14px;color:rgba(255,255,255,.75);font-size:.8rem;font-weight:500;border-radius:8px;transition:all .15s;white-space:nowrap;text-decoration:none}
+    .nav-dropdown-menu a:hover{background:rgba(255,255,255,.07);color:#F4880A}
+    .nav-active{color:#F4880A!important}
+    .mobile-about-sub{display:none}
+    .mobile-about-sub.open{display:block}
+  </style>
+  <script>
+    tailwind.config={theme:{extend:{
+      colors:{magenta:"#C9307A",orange:"#F4880A",navy:"#141D35",blue:"#2B7EC4"},
+      fontFamily:{display:["Fraunces","serif"],body:["DM Sans","sans-serif"]},
+      keyframes:{float:{"0%,100%":{transform:"translateY(0)"},"50%":{transform:"translateY(-10px)"}}},
+      animation:{float1:"float 4s ease-in-out infinite 0s",float2:"float 4s ease-in-out infinite 1.2s",float3:"float 4s ease-in-out infinite 2s",float4:"float 4s ease-in-out infinite 0.7s"}
+    }}}
+  </script>
+</head>
+<body class="bg-white text-navy pt-[73px] overflow-x-hidden font-body">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-navy border-b border-white/10 shadow-lg">
+    <div class="flex items-center justify-between px-[4%] py-4">
+      <a href="index.html"><img src="img/pageafrica.png" alt="PAGE Africa" class="h-9 w-auto brightness-0 invert" /></a>
+      <ul class="hidden md:flex gap-7 list-none items-center">
+        <li><a href="index.html" class="text-white hover:text-orange text-sm font-medium transition-colors ">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="about.html" id="about-btn" class="text-white hover:text-orange text-sm font-medium transition-colors cursor-pointer ">About</a>
+          <div class="nav-dropdown-menu" id="about-dropdown">
+            <a href="about.html#story">About PAGE Africa</a>
+            <a href="about.html#challenge">The Challenge</a>
+            <a href="about.html#team">The Team</a>
+          </div>
+        </li>
+        <li><a href="programs.html" class="text-white hover:text-orange text-sm font-medium transition-colors ">Programs</a></li>
+        <li><a href="involved.html" class="text-white hover:text-orange text-sm font-medium transition-colors ">Get Involved</a></li>
+        <li><a href="impact.html" class="text-white hover:text-orange text-sm font-medium transition-colors ">Impact</a></li>
+        <li><a href="faq.html" class="text-white hover:text-orange text-sm font-medium transition-colors nav-active">FAQ</a></li>
+      </ul>
+      <a href="involved.html" class="hidden md:inline-block bg-magenta hover:bg-magenta/80 text-white text-sm font-semibold px-5 py-2 rounded-full transition-all hover:-translate-y-0.5">Join Hub →</a>
+      <button id="hamburger" class="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-lg hover:bg-white/10 transition-colors" aria-label="Toggle menu">
+        <span class="block w-6 h-0.5 bg-white"></span><span class="block w-6 h-0.5 bg-white"></span><span class="block w-6 h-0.5 bg-white"></span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden flex-col bg-navy border-t border-white/10 px-[4%] pb-6 pt-4 gap-1">
+      <a href="index.html" class="text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg block">Home</a>
+      <div>
+        <button onclick="toggleMobileAbout()" class="w-full flex items-center justify-between text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg transition-colors">
+          <span>About</span><span id="mobile-about-arrow" style="font-size:.65rem;opacity:.5;transition:transform .25s">▼</span>
+        </button>
+        <div id="mobile-about-sub" class="mobile-about-sub pl-3">
+          <a href="about.html#story" class="text-white/70 hover:text-orange hover:bg-white/5 text-sm py-2 px-3 rounded-lg block">About PAGE Africa</a>
+          <a href="about.html#challenge" class="text-white/70 hover:text-orange hover:bg-white/5 text-sm py-2 px-3 rounded-lg block">The Challenge</a>
+          <a href="about.html#team" class="text-white/70 hover:text-orange hover:bg-white/5 text-sm py-2 px-3 rounded-lg block">The Team</a>
+        </div>
+      </div>
+      <a href="programs.html" class="text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg block">Programs</a>
+      <a href="involved.html" class="text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg block">Get Involved</a>
+      <a href="impact.html" class="text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg block">Impact</a>
+      <a href="faq.html" class="text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg block">FAQ</a>
+      <a href="involved.html" class="mt-3 bg-magenta text-white text-sm font-bold py-3 px-3 rounded-xl text-center block">Join Hub →</a>
+    </div>
+  </nav>
+
+  <div class="bg-navy px-[4%] py-16"><div class="max-w-3xl mx-auto">
+    <span class="text-[0.7rem] font-bold tracking-[2px] uppercase text-orange mb-3 block">FAQ</span>
+    <h1 class="font-display text-3xl md:text-5xl font-black text-white leading-tight">Got Questions?<br />We've Got Answers.</h1>
+    <p class="text-white/60 text-base leading-relaxed mt-4">Here are the questions we get asked most. For anything else, reach out directly.</p>
+  </div></div>
+  <section class="py-20 px-[4%] bg-[#F5F4F1]">
+    <div class="max-w-3xl mx-auto space-y-3">
+      <div class="faq-item bg-white border border-gray-200 rounded-2xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-7 py-5 text-left gap-4"><span class="font-semibold text-navy text-sm leading-snug">Who can join the PAGE Africa community?</span><span class="faq-icon text-magenta text-xl font-light flex-shrink-0">+</span></button><div class="faq-answer px-7"><p class="text-gray-600 text-sm leading-relaxed pb-6">Our community is open to students, early-career professionals, and educators across the African continent. We currently support a growing network of over 500 active members committed to personal development, career growth, academic excellence, and psychological wellness.</p></div></div>
+      <div class="faq-item bg-white border border-gray-200 rounded-2xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-7 py-5 text-left gap-4"><span class="font-semibold text-navy text-sm leading-snug">How can I join a hub in my university?</span><span class="faq-icon text-magenta text-xl font-light flex-shrink-0">+</span></button><div class="faq-answer px-7"><p class="text-gray-600 text-sm leading-relaxed pb-6">If your university already has a PAGE Africa presence, you can join by reaching out to our campus champions. We usually announce recruitment and open hub hours on our social media pages — keep an eye out for our applications and calls to join.</p></div></div>
+      <div class="faq-item bg-white border border-gray-200 rounded-2xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-7 py-5 text-left gap-4"><span class="font-semibold text-navy text-sm leading-snug">There's no PAGE Africa hub at my university. Can I start one?</span><span class="faq-icon text-magenta text-xl font-light flex-shrink-0">+</span></button><div class="faq-answer px-7"><p class="text-gray-600 text-sm leading-relaxed pb-3">Yes! We are always looking for passionate campus champions to help us scale. If you care about mental health, academic excellence, and career growth, you can apply to start a "Satellite Hub."</p><p class="text-gray-600 text-sm leading-relaxed pb-6">Send an expression of interest to <a href="mailto:community@thepageafrica.org" class="text-magenta font-semibold hover:underline">community@thepageafrica.org</a> with the subject <strong>"Campus Hub Application."</strong></p></div></div>
+      <div class="faq-item bg-white border border-gray-200 rounded-2xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-7 py-5 text-left gap-4"><span class="font-semibold text-navy text-sm leading-snug">Is PAGE Africa a clinical mental health facility?</span><span class="faq-icon text-magenta text-xl font-light flex-shrink-0">+</span></button><div class="faq-answer px-7"><p class="text-gray-600 text-sm leading-relaxed pb-6">No — we focus on <strong>preventive mental health</strong> to support students before a breakdown occurs. While we are not a therapy clinic, we provide counseling and mental health first aid, and have a network of licensed therapists offering pro-bono services. For severe clinical emergencies, we refer members to our established psychiatric partners.</p></div></div>
+      <div class="faq-item bg-white border border-gray-200 rounded-2xl overflow-hidden"><button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-7 py-5 text-left gap-4"><span class="font-semibold text-navy text-sm leading-snug">Are the programs really free?</span><span class="faq-icon text-magenta text-xl font-light flex-shrink-0">+</span></button><div class="faq-answer px-7"><p class="text-gray-600 text-sm leading-relaxed pb-6">Yes — all core programs are 100% free for students and recent graduates. PAGE Africa is supported through grants, strategic partnerships, and community-led contributions, which allows us to provide these resources at no cost.</p></div></div>
+      <div class="mt-10 text-center pt-4"><p class="text-gray-500 text-sm mb-4">Still have questions?</p><a href="mailto:info@thepageafrica.org" class="inline-block bg-navy text-white font-semibold text-sm px-7 py-3 rounded-full hover:bg-navy/85 hover:-translate-y-0.5 transition-all">Contact Us →</a></div>
+    </div>
+  </section>
+  <footer class="bg-[#0D1425] text-white/60 px-[4%] pt-12 pb-6">
+    <div class="max-w-6xl mx-auto mb-10">
+      <p class="text-center text-[0.65rem] font-bold tracking-[2px] uppercase text-white/25 mb-6">Trusted Partners</p>
+      <div class="flex justify-center items-center gap-6 flex-wrap mb-8">
+        <img src="img/logo-trustedpartner/IMG_4472.JPG" alt="Partner" class="h-10 w-auto object-contain rounded-md opacity-60 hover:opacity-100 transition-opacity" />
+        <img src="img/logo-trustedpartner/IMG_4477.PNG" alt="Partner" class="h-10 w-auto object-contain rounded-md opacity-60 hover:opacity-100 transition-opacity" />
+        <img src="img/logo-trustedpartner/IMG_4478.JPG" alt="Partner" class="h-10 w-auto object-contain rounded-md opacity-60 hover:opacity-100 transition-opacity" />
+        <img src="img/logo-trustedpartner/IMG_4479.JPG" alt="Partner" class="h-10 w-auto object-contain rounded-md opacity-60 hover:opacity-100 transition-opacity" />
+        <img src="img/logo-trustedpartner/IMG_4480.PNG" alt="Partner" class="h-10 w-auto object-contain rounded-md opacity-60 hover:opacity-100 transition-opacity" />
+      </div>
+      <p class="text-center text-[0.65rem] font-bold tracking-[2px] uppercase text-white/25 mb-6">Recognized &amp; Supported By</p>
+      <div class="flex justify-center items-center gap-8 flex-wrap mb-10">
+        <img src="img/logo-partner/IMG_4493.JPG" alt="Partner" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity" />
+        <img src="img/logo-partner/IMG_4494.JPG" alt="Partner" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity" />
+        <img src="img/logo-partner/IMG_4495.PNG" alt="Partner" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity" />
+        <img src="img/logo-partner/IMG_4496.JPG" alt="Partner" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity" />
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto border-t border-white/[0.07] pt-8 flex flex-wrap justify-between gap-10 mb-8">
+      <div>
+        <a href="index.html"><img src="img/pageafrica.png" alt="PAGE Africa" class="h-10 w-auto brightness-0 invert mb-3" /></a>
+        <p class="text-xs max-w-[220px] leading-relaxed">Empowering African youth through career readiness and mental wellness — together.</p>
+      </div>
+      <div>
+        <p class="text-[0.65rem] font-bold tracking-[2px] uppercase text-white/30 mb-3">Navigate</p>
+        <div class="flex flex-col gap-2 text-xs">
+          <a href="about.html" class="text-white/50 hover:text-orange transition-colors">About</a>
+          <a href="programs.html" class="text-white/50 hover:text-orange transition-colors">Programs</a>
+          <a href="involved.html" class="text-white/50 hover:text-orange transition-colors">Get Involved</a>
+          <a href="impact.html" class="text-white/50 hover:text-orange transition-colors">Impact</a>
+          <a href="faq.html" class="text-white/50 hover:text-orange transition-colors">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <p class="text-[0.65rem] font-bold tracking-[2px] uppercase text-white/30 mb-3">Contact</p>
+        <a href="mailto:info@thepageafrica.org" class="text-white/60 hover:text-orange text-sm transition-colors block mb-4">info@thepageafrica.org</a>
+        <div class="flex gap-2 flex-wrap">
+          <a href="#" class="text-white/50 hover:text-white text-xs border border-white/15 px-3 py-1.5 rounded-md transition-all">LinkedIn</a>
+          <a href="#" class="text-white/50 hover:text-white text-xs border border-white/15 px-3 py-1.5 rounded-md transition-all">Instagram</a>
+          <a href="#" class="text-white/50 hover:text-white text-xs border border-white/15 px-3 py-1.5 rounded-md transition-all">Twitter</a>
+          <a href="#" class="text-white/50 hover:text-white text-xs border border-white/15 px-3 py-1.5 rounded-md transition-all">TikTok</a>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto pt-5 border-t border-white/[0.07] flex flex-wrap justify-between gap-3 text-[0.72rem]">
+      <span>© 2026 PAGE Youth Development Initiative LTD/GTE. All rights reserved.</span>
+      <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-md">✓ Registered with the Corporate Affairs Commission (CAC)</span>
+    </div>
+  </footer>
+  <script>
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if(hamburger){ hamburger.addEventListener('click',()=>{ mobileMenu.classList.toggle('hidden'); mobileMenu.classList.toggle('flex'); }); }
+
+    // Desktop About dropdown — click based, close on outside click
+    const aboutBtn = document.getElementById('about-btn');
+    const aboutDropdown = document.getElementById('about-dropdown');
+    if(aboutBtn && aboutDropdown){
+      aboutBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        const isOpen = aboutDropdown.classList.contains('open');
+        aboutDropdown.classList.toggle('open');
+      });
+      document.addEventListener('click', function(e){
+        if(!aboutBtn.contains(e.target) && !aboutDropdown.contains(e.target)){
+          aboutDropdown.classList.remove('open');
+        }
+      });
+    }
+
+    // Mobile About submenu toggle
+    function toggleMobileAbout(){
+      const sub = document.getElementById('mobile-about-sub');
+      const arrow = document.getElementById('mobile-about-arrow');
+      if(!sub) return;
+      sub.classList.toggle('open');
+      if(arrow) arrow.style.transform = sub.classList.contains('open') ? 'rotate(180deg)' : '';
+    }
+
+    // Fade-up
+    const obs = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});
+    document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+    // FAQ accordion
+    function toggleFaq(btn){
+      const item=btn.closest('.faq-item'), ans=item.querySelector('.faq-answer'), open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(el=>{el.classList.remove('open');el.querySelector('.faq-answer').classList.remove('open');});
+      if(!open){item.classList.add('open');ans.classList.add('open');}
+    }
+  </script>
+</body>
+</html>

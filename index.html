@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Build Your Career. Protect Your Peace — PAGE Africa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,900&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .hero-clip {
+        clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+      }
+      .prog-cta {
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+      .fade-up {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .mission-line {
+        background: linear-gradient(90deg, #c9307a, #f4880a);
+        height: 3px;
+        border-radius: 2px;
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
+      .faq-answer.open {
+        max-height: 600px;
+      }
+      .faq-icon {
+        transition: transform 0.3s ease;
+        display: inline-block;
+      }
+      .faq-item.open .faq-icon {
+        transform: rotate(45deg);
+      }
+      .nav-dropdown {
+        position: relative;
+      }
+      .nav-dropdown-menu {
+        display: none;
+        position: absolute;
+        top: calc(100% + 4px);
+        left: 50%;
+        transform: translateX(-50%);
+        background: #141d35;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 6px;
+        min-width: 200px;
+        z-index: 100;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      }
+      .nav-dropdown-menu::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 0;
+        right: 0;
+        height: 10px;
+      }
+      .nav-dropdown-menu.open {
+        display: block;
+      }
+      .nav-dropdown-menu a {
+        display: block;
+        padding: 9px 14px;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.8rem;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.15s;
+        white-space: nowrap;
+        text-decoration: none;
+      }
+      .nav-dropdown-menu a:hover {
+        background: rgba(255, 255, 255, 0.07);
+        color: #f4880a;
+      }
+      .nav-active {
+        color: #f4880a !important;
+      }
+      .mobile-about-sub {
+        display: none;
+      }
+      .mobile-about-sub.open {
+        display: block;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              magenta: "#C9307A",
+              orange: "#F4880A",
+              navy: "#141D35",
+              blue: "#2B7EC4",
+            },
+            fontFamily: {
+              display: ["Fraunces", "serif"],
+              body: ["DM Sans", "sans-serif"],
+            },
+            keyframes: {
+              float: {
+                "0%,100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+            },
+            animation: {
+              float1: "float 4s ease-in-out infinite 0s",
+              float2: "float 4s ease-in-out infinite 1.2s",
+              float3: "float 4s ease-in-out infinite 2s",
+              float4: "float 4s ease-in-out infinite 0.7s",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-white text-navy overflow-x-hidden font-body">
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-navy border-b border-white/10 shadow-lg"
+    >
+      <div class="flex items-center justify-between px-[4%] py-4">
+        <a href="index.html"
+          ><img
+            src="img/pageafrica.png"
+            alt="PAGE Africa"
+            class="h-9 w-auto brightness-0 invert"
+        /></a>
+        <ul class="hidden md:flex gap-7 list-none items-center">
+          <li>
+            <a
+              href="index.html"
+              class="text-white hover:text-orange text-sm font-medium transition-colors nav-active"
+              >Home</a
+            >
+          </li>
+          <li class="nav-dropdown">
+            <a
+              href="about.html"
+              id="about-btn"
+              class="text-white hover:text-orange text-sm font-medium transition-colors cursor-pointer"
+              >About</a
+            >
+            <div class="nav-dropdown-menu" id="about-dropdown">
+              <a href="about.html#story">About PAGE Africa</a>
+              <a href="about.html#challenge">The Challenge</a>
+              <a href="about.html#team">The Team</a>
+            </div>
+          </li>
+          <li>
+            <a
+              href="programs.html"
+              class="text-white hover:text-orange text-sm font-medium transition-colors"
+              >Programs</a
+            >
+          </li>
+          <li>
+            <a
+              href="involved.html"
+              class="text-white hover:text-orange text-sm font-medium transition-colors"
+              >Get Involved</a
+            >
+          </li>
+          <li>
+            <a
+              href="impact.html"
+              class="text-white hover:text-orange text-sm font-medium transition-colors"
+              >Impact</a
+            >
+          </li>
+          <li>
+            <a
+              href="faq.html"
+              class="text-white hover:text-orange text-sm font-medium transition-colors"
+              >FAQ</a
+            >
+          </li>
+        </ul>
+        <a
+          href="involved.html"
+          class="hidden md:inline-block bg-magenta hover:bg-magenta/80 text-white text-sm font-semibold px-5 py-2 rounded-full transition-all hover:-translate-y-0.5"
+          >Join Hub →</a
+        >
+        <button
+          id="hamburger"
+          class="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-lg hover:bg-white/10 transition-colors"
+          aria-label="Toggle menu"
+        >
+          <span class="block w-6 h-0.5 bg-white"></span
+          ><span class="block w-6 h-0.5 bg-white"></span
+          ><span class="block w-6 h-0.5 bg-white"></span>
+        </button>
+      </div>
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden flex-col bg-navy border-t border-white/10 px-[4%] pb-6 pt-4 gap-1"
+      >
+        <a
+          href="index.html"
+          class="text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg block"
+          >Home</a
+        >
+        <div>
+          <button
+            onclick="toggleMobileAbout()"
+            class="w-full flex items-center justify-between text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg transition-colors"
+          >
+            <span>About</span
+            ><span
+              id="mobile-about-arrow"
+              style="
+                font-size: 0.65rem;
+                opacity: 0.5;
+                transition: transform 0.25s;
+              "
+              >▼</span
+            >
+          </button>
+          <div id="mobile-about-sub" class="mobile-about-sub pl-3">
+            <a
+              href="about.html#story"
+              class="text-white/70 hover:text-orange hover:bg-white/5 text-sm py-2 px-3 rounded-lg block"
+              >About PAGE Africa</a
+            >
+            <a
+              href="about.html#challenge"
+              class="text-white/70 hover:text-orange hover:bg-white/5 text-sm py-2 px-3 rounded-lg block"
+              >The Challenge</a
+            >
+            <a
+              href="about.html#team"
+              class="text-white/70 hover:text-orange hover:bg-white/5 text-sm py-2 px-3 rounded-lg block"
+              >The Team</a
+            >
+          </div>
+        </div>
+        <a
+          href="programs.html"
+          class="text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg block"
+          >Programs</a
+        >
+        <a
+          href="involved.html"
+          class="text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg block"
+          >Get Involved</a
+        >
+        <a
+          href="impact.html"
+          class="text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg block"
+          >Impact</a
+        >
+        <a
+          href="faq.html"
+          class="text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg block"
+          >FAQ</a
+        >
+        <a
+          href="involved.html"
+          class="mt-3 bg-magenta text-white text-sm font-bold py-3 px-3 rounded-xl text-center block"
+          >Join Hub →</a
+        >
+      </div>
+    </nav>
+
+    <section
+      class="relative min-h-screen bg-navy flex items-center px-[4%] pt-32 pb-20 overflow-hidden hero-clip"
+    >
+      <div
+        class="absolute w-[600px] h-[600px] rounded-full bg-magenta opacity-[0.18] blur-[80px] -top-24 -right-24 pointer-events-none"
+      ></div>
+      <div
+        class="absolute w-[400px] h-[400px] rounded-full bg-blue opacity-[0.18] blur-[80px] -bottom-20 left-[10%] pointer-events-none"
+      ></div>
+      <div
+        class="absolute w-[300px] h-[300px] rounded-full bg-orange opacity-[0.18] blur-[80px] top-[30%] -left-20 pointer-events-none"
+      ></div>
+      <div
+        class="relative z-10 max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
+      >
+        <div>
+          <div
+            class="inline-block bg-orange/15 text-orange border border-orange/30 text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6"
+          >
+            For African Students &amp; Graduates
+          </div>
+          <h1
+            class="font-display text-4xl md:text-5xl xl:text-6xl font-black text-white leading-[1.08] tracking-tight mb-6"
+          >
+            Build Your Career.<br />
+            <span class="text-2xl md:text-3xl xl:text-4xl block my-1"
+              >Protect Your Mental Health.</span
+            >
+            <em class="text-orange" style="font-style: italic"
+              >Get Real Opportunities.</em
+            >
+          </h1>
+          <p class="text-white/70 text-lg leading-relaxed mb-3 max-w-md">
+            Join 700+ African students achieving career excellence while staying
+            mentally resilient.
+          </p>
+          <p
+            class="text-white/45 text-sm leading-relaxed mb-10 max-w-md border-l-2 border-orange/40 pl-3"
+          >
+            PAGE Africa is a student-focused community bridging mental wellness
+            and career readiness across the African continent.
+          </p>
+          <div class="flex gap-4 flex-wrap">
+            <a
+              href="involved.html"
+              class="bg-magenta hover:bg-magenta/85 text-white font-bold text-base px-8 py-3.5 rounded-full shadow-[0_4px_20px_rgba(201,48,122,0.4)] hover:-translate-y-0.5 transition-all"
+              >Join the Youth Hub (Free)</a
+            >
+            <a
+              href="mailto:itspage01@gmail.com"
+              class="bg-orange text-white font-semibold text-base px-8 py-3.5 rounded-full hover:bg-orange/85 hover:-translate-y-0.5 transition-all"
+              >Partner With Us</a
+            >
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div
+            class="bg-white/[0.06] border border-white/10 rounded-2xl p-5 backdrop-blur-md animate-float1"
+          >
+            <div class="text-2xl mb-2">🎓</div>
+            <div class="font-display text-3xl font-black text-white">
+              700<span class="text-orange">+</span>
+            </div>
+            <div class="text-white/55 text-xs mt-1 flex items-center gap-1.5">
+              <span class="inline-block w-2 h-2 rounded-full bg-orange"></span
+              >Students Empowered
+            </div>
+          </div>
+          <div
+            class="bg-white/[0.06] border border-white/10 rounded-2xl p-5 backdrop-blur-md animate-float2"
+          >
+            <div class="text-2xl mb-2">🏛️</div>
+            <div class="font-display text-3xl font-black text-white">
+              12<span class="text-magenta">+</span>
+            </div>
+            <div class="text-white/55 text-xs mt-1 flex items-center gap-1.5">
+              <span class="inline-block w-2 h-2 rounded-full bg-magenta"></span
+              >Universities Reached
+            </div>
+          </div>
+          <div
+            class="bg-white/[0.06] border border-white/10 rounded-2xl p-5 backdrop-blur-md animate-float3"
+          >
+            <div class="text-2xl mb-2">💼</div>
+            <div class="font-display text-3xl font-black text-white">
+              10<span class="text-blue">+</span>
+            </div>
+            <div class="text-white/55 text-xs mt-1 flex items-center gap-1.5">
+              <span class="inline-block w-2 h-2 rounded-full bg-blue"></span>Job
+              Placements Confirmed
+            </div>
+          </div>
+          <div
+            class="bg-white/[0.06] border border-white/10 rounded-2xl p-5 backdrop-blur-md animate-float4"
+          >
+            <div class="text-2xl mb-2">🌐</div>
+            <div class="font-display text-3xl font-black text-white">
+              300<span class="text-magenta">+</span>
+            </div>
+            <div class="text-white/55 text-xs mt-1 flex items-center gap-1.5">
+              <span class="inline-block w-2 h-2 rounded-full bg-magenta"></span
+              >Verified Opportunities Shared
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-20 px-[4%] bg-white">
+      <div class="max-w-6xl mx-auto">
+        <p
+          class="text-[0.7rem] font-bold tracking-[2px] uppercase text-gray-400 mb-10 text-center"
+        >
+          Explore PAGE Africa
+        </p>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5"
+        >
+          <a
+            href="about.html"
+            class="fade-up group border border-gray-200 rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl hover:border-magenta/30 transition-all"
+            ><div class="text-2xl mb-3">🌍</div>
+            <div
+              class="font-display text-base font-bold text-navy mb-1 group-hover:text-magenta transition-colors"
+            >
+              About Us
+            </div>
+            <p class="text-gray-500 text-xs leading-relaxed">
+              Our story, vision, mission &amp; the team behind PAGE Africa.
+            </p></a
+          >
+          <a
+            href="programs.html"
+            class="fade-up group border border-gray-200 rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl hover:border-orange/30 transition-all"
+            ><div class="text-2xl mb-3">🚀</div>
+            <div
+              class="font-display text-base font-bold text-navy mb-1 group-hover:text-orange transition-colors"
+            >
+              Our Programs
+            </div>
+            <p class="text-gray-500 text-xs leading-relaxed">
+              R3 Lab, Wellness Hub, Career Discourse Series &amp; the Youth Hub.
+            </p></a
+          >
+          <a
+            href="involved.html"
+            class="fade-up group border border-gray-200 rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl hover:border-blue/30 transition-all"
+            ><div class="text-2xl mb-3">🤝</div>
+            <div
+              class="font-display text-base font-bold text-navy mb-1 group-hover:text-blue transition-colors"
+            >
+              Get Involved
+            </div>
+            <p class="text-gray-500 text-xs leading-relaxed">
+              Join as a student, partner as a donor, or volunteer.
+            </p></a
+          >
+          <a
+            href="impact.html"
+            class="fade-up group border border-gray-200 rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl hover:border-navy/20 transition-all"
+            ><div class="text-2xl mb-3">💬</div>
+            <div
+              class="font-display text-base font-bold text-navy mb-1 group-hover:text-navy/70 transition-colors"
+            >
+              Our Impact
+            </div>
+            <p class="text-gray-500 text-xs leading-relaxed">
+              Real stories from students shaped by PAGE Africa.
+            </p></a
+          >
+          <a
+            href="faq.html"
+            class="fade-up group border border-gray-200 rounded-2xl p-6 hover:-translate-y-1 hover:shadow-xl hover:border-magenta/30 transition-all"
+            ><div class="text-2xl mb-3">❓</div>
+            <div
+              class="font-display text-base font-bold text-navy mb-1 group-hover:text-magenta transition-colors"
+            >
+              FAQ
+            </div>
+            <p class="text-gray-500 text-xs leading-relaxed">
+              Common questions about joining, programs, and how PAGE Africa
+              works.
+            </p></a
+          >
+        </div>
+      </div>
+    </section>
+    <footer class="bg-[#0D1425] text-white/60 px-[4%] pt-12 pb-6">
+      <div class="max-w-6xl mx-auto mb-10">
+        <p
+          class="text-center text-[0.65rem] font-bold tracking-[2px] uppercase text-white/25 mb-6"
+        >
+          Trusted Partners
+        </p>
+        <div class="flex justify-center items-center gap-6 flex-wrap mb-8">
+          <img
+            src="img/logo-trustedpartner/IMG_4472.JPG"
+            alt="Partner"
+            class="h-10 w-auto object-contain rounded-md opacity-60 hover:opacity-100 transition-opacity"
+          />
+          <img
+            src="img/logo-trustedpartner/IMG_4477.PNG"
+            alt="Partner"
+            class="h-10 w-auto object-contain rounded-md opacity-60 hover:opacity-100 transition-opacity"
+          />
+          <img
+            src="img/logo-trustedpartner/IMG_4478.JPG"
+            alt="Partner"
+            class="h-10 w-auto object-contain rounded-md opacity-60 hover:opacity-100 transition-opacity"
+          />
+          <img
+            src="img/logo-trustedpartner/IMG_4479.JPG"
+            alt="Partner"
+            class="h-10 w-auto object-contain rounded-md opacity-60 hover:opacity-100 transition-opacity"
+          />
+          <img
+            src="img/logo-trustedpartner/IMG_4480.PNG"
+            alt="Partner"
+            class="h-10 w-auto object-contain rounded-md opacity-60 hover:opacity-100 transition-opacity"
+          />
+        </div>
+        <p
+          class="text-center text-[0.65rem] font-bold tracking-[2px] uppercase text-white/25 mb-6"
+        >
+          Recognized &amp; Supported By
+        </p>
+        <div class="flex justify-center items-center gap-8 flex-wrap mb-10">
+          <img
+            src="img/logo-partner/IMG_4493.JPG"
+            alt="Partner"
+            class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
+          />
+          <img
+            src="img/logo-partner/IMG_4494.JPG"
+            alt="Partner"
+            class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
+          />
+          <img
+            src="img/logo-partner/IMG_4495.PNG"
+            alt="Partner"
+            class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
+          />
+          <img
+            src="img/logo-partner/IMG_4496.JPG"
+            alt="Partner"
+            class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
+          />
+        </div>
+      </div>
+      <div
+        class="max-w-6xl mx-auto border-t border-white/[0.07] pt-8 flex flex-wrap justify-between gap-10 mb-8"
+      >
+        <div>
+          <a href="index.html"
+            ><img
+              src="img/pageafrica.png"
+              alt="PAGE Africa"
+              class="h-10 w-auto brightness-0 invert mb-3"
+          /></a>
+          <p class="text-xs max-w-[220px] leading-relaxed">
+            Empowering African youth through career readiness and mental
+            wellness — together.
+          </p>
+        </div>
+        <div>
+          <p
+            class="text-[0.65rem] font-bold tracking-[2px] uppercase text-white/30 mb-3"
+          >
+            Navigate
+          </p>
+          <div class="flex flex-col gap-2 text-xs">
+            <a
+              href="about.html"
+              class="text-white/50 hover:text-orange transition-colors"
+              >About</a
+            >
+            <a
+              href="programs.html"
+              class="text-white/50 hover:text-orange transition-colors"
+              >Programs</a
+            >
+            <a
+              href="involved.html"
+              class="text-white/50 hover:text-orange transition-colors"
+              >Get Involved</a
+            >
+            <a
+              href="impact.html"
+              class="text-white/50 hover:text-orange transition-colors"
+              >Impact</a
+            >
+            <a
+              href="faq.html"
+              class="text-white/50 hover:text-orange transition-colors"
+              >FAQ</a
+            >
+          </div>
+        </div>
+        <div>
+          <p
+            class="text-[0.65rem] font-bold tracking-[2px] uppercase text-white/30 mb-3"
+          >
+            Contact
+          </p>
+          <a
+            href="mailto:info@thepageafrica.org"
+            class="text-white/60 hover:text-orange text-sm transition-colors block mb-4"
+            >info@thepageafrica.org</a
+          >
+          <div class="flex gap-2 flex-wrap">
+            <a
+              href="#"
+              class="text-white/50 hover:text-white text-xs border border-white/15 px-3 py-1.5 rounded-md transition-all"
+              >LinkedIn</a
+            >
+            <a
+              href="#"
+              class="text-white/50 hover:text-white text-xs border border-white/15 px-3 py-1.5 rounded-md transition-all"
+              >Instagram</a
+            >
+            <a
+              href="#"
+              class="text-white/50 hover:text-white text-xs border border-white/15 px-3 py-1.5 rounded-md transition-all"
+              >Twitter</a
+            >
+            <a
+              href="#"
+              class="text-white/50 hover:text-white text-xs border border-white/15 px-3 py-1.5 rounded-md transition-all"
+              >TikTok</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="max-w-6xl mx-auto pt-5 border-t border-white/[0.07] flex flex-wrap justify-between gap-3 text-[0.72rem]"
+      >
+        <span
+          >© 2026 PAGE Youth Development Initiative LTD/GTE. All rights
+          reserved.</span
+        >
+        <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-md"
+          >✓ Registered with the Corporate Affairs Commission (CAC)</span
+        >
+      </div>
+    </footer>
+    <script>
+      // Hamburger
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (hamburger) {
+        hamburger.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+          mobileMenu.classList.toggle("flex");
+        });
+      }
+
+      // Desktop About dropdown — click based, close on outside click
+      const aboutBtn = document.getElementById("about-btn");
+      const aboutDropdown = document.getElementById("about-dropdown");
+      if (aboutBtn && aboutDropdown) {
+        aboutBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          const isOpen = aboutDropdown.classList.contains("open");
+          aboutDropdown.classList.toggle("open");
+        });
+        document.addEventListener("click", function (e) {
+          if (
+            !aboutBtn.contains(e.target) &&
+            !aboutDropdown.contains(e.target)
+          ) {
+            aboutDropdown.classList.remove("open");
+          }
+        });
+      }
+
+      // Mobile About submenu toggle
+      function toggleMobileAbout() {
+        const sub = document.getElementById("mobile-about-sub");
+        const arrow = document.getElementById("mobile-about-arrow");
+        if (!sub) return;
+        sub.classList.toggle("open");
+        if (arrow)
+          arrow.style.transform = sub.classList.contains("open")
+            ? "rotate(180deg)"
+            : "";
+      }
+
+      // Fade-up
+      const obs = new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          }),
+        { threshold: 0.1 },
+      );
+      document.querySelectorAll(".fade-up").forEach((el) => obs.observe(el));
+
+      // FAQ accordion
+      function toggleFaq(btn) {
+        const item = btn.closest(".faq-item"),
+          ans = item.querySelector(".faq-answer"),
+          open = item.classList.contains("open");
+        document.querySelectorAll(".faq-item").forEach((el) => {
+          el.classList.remove("open");
+          el.querySelector(".faq-answer").classList.remove("open");
+        });
+        if (!open) {
+          item.classList.add("open");
+          ans.classList.add("open");
+        }
+      }
+    </script>
+  </body>
+</html>
