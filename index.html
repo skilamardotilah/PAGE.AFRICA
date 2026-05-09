@@ -127,6 +127,7 @@
               float2: "float 4s ease-in-out infinite 1.2s",
               float3: "float 4s ease-in-out infinite 2s",
               float4: "float 4s ease-in-out infinite 0.7s",
+              float5: "float 4s ease-in-out infinite 1.5s",
             },
           },
         },
@@ -332,58 +333,80 @@
             >
           </div>
         </div>
-        <div class="grid grid-cols-2 gap-4">
+        
+        <!-- Bagian Kartu yang Diperbarui -->
+        <!-- Menggunakan grid di mobile (2 kolom) dan flex-col di desktop untuk posisi zig-zag -->
+        <div class="grid grid-cols-2 gap-4 md:flex md:flex-col md:items-center md:gap-0 md:relative md:h-[450px]">
+          
+          <!-- Kartu 1: Posisi kiri atas di desktop -->
           <div
-            class="bg-white/[0.06] border border-white/10 rounded-2xl p-5 backdrop-blur-md animate-float1"
+            class="bg-white/[0.06] border border-white/10 rounded-2xl p-4 backdrop-blur-md animate-float1 md:absolute md:top-0 md:left-0 md:w-[48%]"
           >
-            <div class="text-2xl mb-2">🎓</div>
-            <div class="font-display text-3xl font-black text-white">
+            <div class="text-xl mb-1.5">🎓</div>
+            <div class="font-display text-2xl font-black text-white">
               700<span class="text-orange">+</span>
             </div>
-            <div class="text-white/55 text-xs mt-1 flex items-center gap-1.5">
-              <span class="inline-block w-2 h-2 rounded-full bg-orange"></span
-              >Students Empowered
+            <div class="text-white/55 text-[0.7rem] mt-1 flex items-center gap-1.5">
+              <span class="inline-block w-2 h-2 rounded-full bg-orange"></span>Students Empowered
             </div>
           </div>
+
+          <!-- Kartu 2: Posisi kanan, sedikit turun di desktop -->
           <div
-            class="bg-white/[0.06] border border-white/10 rounded-2xl p-5 backdrop-blur-md animate-float2"
+            class="bg-white/[0.06] border border-white/10 rounded-2xl p-4 backdrop-blur-md animate-float2 md:absolute md:top-[60px] md:right-0 md:w-[48%]"
           >
-            <div class="text-2xl mb-2">🏛️</div>
-            <div class="font-display text-3xl font-black text-white">
+            <div class="text-xl mb-1.5">🏛️</div>
+            <div class="font-display text-2xl font-black text-white">
               12<span class="text-magenta">+</span>
             </div>
-            <div class="text-white/55 text-xs mt-1 flex items-center gap-1.5">
-              <span class="inline-block w-2 h-2 rounded-full bg-magenta"></span
-              >Universities Reached
+            <div class="text-white/55 text-[0.7rem] mt-1 flex items-center gap-1.5">
+              <span class="inline-block w-2 h-2 rounded-full bg-magenta"></span>Universities Reached
             </div>
           </div>
+
+          <!-- Kartu 3: Tengah agak kiri, turun lagi -->
           <div
-            class="bg-white/[0.06] border border-white/10 rounded-2xl p-5 backdrop-blur-md animate-float3"
+            class="bg-white/[0.06] border border-white/10 rounded-2xl p-4 backdrop-blur-md animate-float3 md:absolute md:top-[160px] md:left-[10%] md:w-[48%]"
           >
-            <div class="text-2xl mb-2">💼</div>
-            <div class="font-display text-3xl font-black text-white">
+            <div class="text-xl mb-1.5">💼</div>
+            <div class="font-display text-2xl font-black text-white">
               10<span class="text-blue">+</span>
             </div>
-            <div class="text-white/55 text-xs mt-1 flex items-center gap-1.5">
-              <span class="inline-block w-2 h-2 rounded-full bg-blue"></span>Job
-              Placements Confirmed
+            <div class="text-white/55 text-[0.7rem] mt-1 flex items-center gap-1.5">
+              <span class="inline-block w-2 h-2 rounded-full bg-blue"></span>Job Placements Confirmed
             </div>
           </div>
+
+          <!-- Kartu 4: Kanan bawah -->
           <div
-            class="bg-white/[0.06] border border-white/10 rounded-2xl p-5 backdrop-blur-md animate-float4"
+            class="bg-white/[0.06] border border-white/10 rounded-2xl p-4 backdrop-blur-md animate-float4 md:absolute md:top-[240px] md:right-[5%] md:w-[48%]"
           >
-            <div class="text-2xl mb-2">🌐</div>
-            <div class="font-display text-3xl font-black text-white">
+            <div class="text-xl mb-1.5">🌐</div>
+            <div class="font-display text-2xl font-black text-white">
               300<span class="text-magenta">+</span>
             </div>
-            <div class="text-white/55 text-xs mt-1 flex items-center gap-1.5">
-              <span class="inline-block w-2 h-2 rounded-full bg-magenta"></span
-              >Verified Opportunities Shared
+            <div class="text-white/55 text-[0.7rem] mt-1 flex items-center gap-1.5">
+              <span class="inline-block w-2 h-2 rounded-full bg-magenta"></span>Verified Opportunities
+            </div>
+          </div>
+
+          <!-- Kartu 5: Kiri bawah, menonjol keluar sedikit -->
+          <div
+            class="bg-white/[0.06] border border-white/10 rounded-2xl p-4 backdrop-blur-md animate-float5 md:absolute md:top-[330px] md:left-[-5%] md:w-[48%]"
+          >
+            <div class="text-xl mb-1.5">💡</div> <!-- Emoji diubah agar variatif -->
+            <div class="font-display text-2xl font-black text-white">
+              7<span class="text-orange">+</span>
+            </div>
+            <div class="text-white/55 text-[0.7rem] mt-1 flex items-center gap-1.5">
+              <span class="inline-block w-2 h-2 rounded-full bg-orange"></span>Workshops Held
             </div>
           </div>
         </div>
       </div>
     </section>
+    
+    <!-- Sisa section (Explore, Footer, Script) tidak berubah -->
     <section class="py-20 px-[4%] bg-white">
       <div class="max-w-6xl mx-auto">
         <p
