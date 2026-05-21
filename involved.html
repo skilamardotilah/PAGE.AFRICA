@@ -299,10 +299,12 @@
         </p>
       </div>
     </div>
+
     <section class="py-20 px-[4%] bg-white">
       <div
-        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
+        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-6"
       >
+        <!-- For Students -->
         <div
           class="fade-up border-[1.5px] border-gray-200 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-xl transition-all"
         >
@@ -326,6 +328,8 @@
             >Join Hub (Free)</a
           >
         </div>
+
+        <!-- For Donors & Partners -->
         <div
           class="fade-up border-[1.5px] border-gray-200 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-xl transition-all"
         >
@@ -348,6 +352,8 @@
             >Partner With Us</a
           >
         </div>
+
+        <!-- For Volunteers -->
         <div
           class="fade-up border-[1.5px] border-gray-200 rounded-2xl p-8 hover:-translate-y-1 hover:shadow-xl transition-all"
         >
@@ -365,12 +371,74 @@
             to power Africa's next generation of leaders.
           </p>
           <a
-            href="#"
+            href="https://ideali.st/95bbyI"
+            target="_blank"
             class="inline-block bg-blue text-white font-bold text-sm px-6 py-2.5 rounded-full hover:-translate-y-0.5 transition-all"
             >View Openings</a
           >
         </div>
       </div>
+
+      <!-- NEW: For Professionals — full width card -->
+      <div class="max-w-6xl mx-auto mb-6">
+        <div
+          class="fade-up border-[1.5px] border-gray-200 rounded-2xl p-8 relative overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all"
+        >
+          <!-- gradient top bar -->
+          <div
+            class="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
+            style="background: linear-gradient(90deg, #C9307A, #F4880A);"
+          ></div>
+
+          <div class="flex flex-col md:flex-row md:items-center md:gap-10">
+            <div class="flex-1">
+              <div class="text-3xl mb-4">🌍</div>
+              <div
+                class="text-[0.7rem] font-bold tracking-[1.5px] uppercase mb-2"
+                style="color: #C9307A;"
+              >
+                For Professionals
+              </div>
+              <h2 class="font-display text-lg font-bold text-navy mb-3">
+                Give Back. Shape the Next Generation.
+              </h2>
+              <p class="text-gray-600 text-sm leading-relaxed mb-5 max-w-2xl">
+                Join our mental health counsellors, career professionals, and academic mentors providing their expertise to support African youths. Whether you can spare an hour a month or more, your knowledge can transform a young person's trajectory.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span
+                  class="text-xs font-semibold border rounded-full px-3 py-1"
+                  style="color:#C9307A; border-color:rgba(201,48,122,0.25); background:rgba(201,48,122,0.07);"
+                  >Mental Health Counsellors</span
+                >
+                <span
+                  class="text-xs font-semibold border rounded-full px-3 py-1"
+                  style="color:#F4880A; border-color:rgba(244,136,10,0.25); background:rgba(244,136,10,0.07);"
+                  >Career Professionals</span
+                >
+                <span
+                  class="text-xs font-semibold border rounded-full px-3 py-1"
+                  style="color:#2B7EC4; border-color:rgba(43,126,196,0.25); background:rgba(43,126,196,0.07);"
+                  >Academic Mentors</span
+                >
+              </div>
+            </div>
+
+            <!-- CTA buttons -->
+            <div class="flex flex-col sm:flex-row md:flex-col gap-3 flex-shrink-0">
+              <a
+                href="https://forms.gle/PZ1hm3iBbq9BDcBz9"
+                target="_blank"
+                class="inline-block font-bold text-sm px-7 py-3 rounded-full text-center hover:-translate-y-0.5 transition-all text-white"
+                style="background: linear-gradient(90deg, #C9307A, #F4880A);"
+                >Join as a Professional →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Start a Hub banner -->
       <div
         class="max-w-6xl mx-auto bg-[#F5F4F1] rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6"
       >
@@ -401,6 +469,7 @@
         >
       </div>
     </section>
+
     <footer class="bg-[#0D1425] text-white/60 px-[4%] pt-12 pb-6">
       <div class="max-w-6xl mx-auto mb-10">
         <p
@@ -559,6 +628,7 @@
         >
       </div>
     </footer>
+
     <script>
       // Hamburger
       const hamburger = document.getElementById("hamburger");
@@ -576,7 +646,6 @@
       if (aboutBtn && aboutDropdown) {
         aboutBtn.addEventListener("click", function (e) {
           e.preventDefault();
-          const isOpen = aboutDropdown.classList.contains("open");
           aboutDropdown.classList.toggle("open");
         });
         document.addEventListener("click", function (e) {
