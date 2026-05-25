@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — PAGE Africa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      body { font-family: 'DM Sans', sans-serif; }
+      .fade-up { opacity:0; transform:translateY(24px); transition:opacity .55s ease,transform .55s ease; }
+      .fade-up.visible { opacity:1; transform:none; }
+      .mission-line { background:linear-gradient(90deg,#2B7EC4,#1A9E8F); height:3px; border-radius:2px; }
+      .nav-dropdown { position:relative; }
+      .nav-dropdown-menu { display:none; position:absolute; top:calc(100% + 4px); left:50%; transform:translateX(-50%); background:#0E1E3A; border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:6px; min-width:200px; z-index:100; box-shadow:0 8px 32px rgba(0,0,0,.4); }
+      .nav-dropdown-menu::before { content:''; position:absolute; top:-10px; left:0; right:0; height:10px; }
+      .nav-dropdown-menu.open { display:block; }
+      .nav-dropdown-menu a { display:block; padding:9px 14px; color:rgba(255,255,255,.75); font-size:.8rem; font-weight:500; border-radius:8px; transition:all .15s; white-space:nowrap; text-decoration:none; }
+      .nav-dropdown-menu a:hover { background:rgba(43,126,196,.2); color:#7EC8F4; }
+      .nav-active {
+        color: #F4880A !important;
+      }
+      .mobile-about-sub { display:none; }
+      .mobile-about-sub.open { display:block; }
+    </style>
+    <script>
+      tailwind.config={theme:{extend:{
+        colors:{magenta:"#C9307A",orange:"#F4880A",navy:"#0E1E3A",blue:"#2B7EC4",teal:"#1A9E8F"},
+        fontFamily:{display:["Fraunces","serif"],body:["DM Sans","sans-serif"]}
+      }}}
+    </script>
+  </head>
+  <body class="bg-white text-navy pt-[73px] overflow-x-hidden">
+
+    <!-- NAV -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-navy">
+    <div class="flex items-center justify-between px-[4%] py-4">
+      <a href="index.html">
+        <img src="img/pageafrica.png" alt="PAGE Africa" class="h-9 w-auto brightness-0 invert" />
+      </a>
+      <ul class="hidden md:flex gap-8 list-none items-center">
+        <li><a href="index.html" class="text-white hover:text-orange text-sm font-medium transition-colors">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="about.html" id="about-btn" class="text-white hover:text-orange text-sm font-medium transition-colors cursor-pointer">About</a>
+          <div class="nav-dropdown-menu" id="about-dropdown">
+            <a href="about.html#story">About PAGE Africa</a>
+            <a href="about.html#challenge">The Challenge</a>
+            <a href="about.html#team">The Team</a>
+          </div>
+        </li>
+        <li><a href="programs.html" class="text-white hover:text-orange text-sm font-medium transition-colors">Programs</a></li>
+        <li><a href="involved.html" class="text-white hover:text-orange text-sm font-medium transition-colors">Get Involved</a></li>
+        <li><a href="impact.html" class="text-white hover:text-orange text-sm font-medium transition-colors">Impact</a></li>
+        <li><a href="faq.html" class="text-white hover:text-orange text-sm font-medium transition-colors">FAQ</a></li>
+      </ul>
+      <a href="mailto:info@thepageafrica.org" class="hidden md:inline-block text-white text-sm font-semibold px-5 py-2 rounded-full transition-all hover:-translate-y-0.5" style="background:#2B7EC4">Contact Us →</a>
+      <button id="hamburger" class="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-lg hover:bg-white/10 transition-colors" aria-label="Toggle menu">
+        <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden flex-col bg-navy px-[4%] pb-6 pt-4 gap-1">
+      <a href="index.html" class="text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg transition-colors block">Home</a>
+      <div>
+        <button onclick="toggleMobileAbout()" class="w-full flex items-center justify-between text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg transition-colors">
+          <span>About</span><span id="mobile-about-arrow" style="font-size:.65rem;opacity:.5;transition:transform .25s">▼</span>
+        </button>
+        <div id="mobile-about-sub" class="mobile-about-sub pl-3">
+          <a href="about.html#story" class="text-white/70 hover:text-orange hover:bg-white/5 text-sm py-2 px-3 rounded-lg block">About PAGE Africa</a>
+          <a href="about.html#challenge" class="text-white/70 hover:text-orange hover:bg-white/5 text-sm py-2 px-3 rounded-lg block">The Challenge</a>
+          <a href="about.html#team" class="text-white/70 hover:text-orange hover:bg-white/5 text-sm py-2 px-3 rounded-lg block">The Team</a>
+        </div>
+      </div>
+      <a href="programs.html" class="text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg transition-colors block">Programs</a>
+      <a href="involved.html" class="text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg transition-colors block">Get Involved</a>
+      <a href="impact.html" class="text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg transition-colors block">Impact</a>
+      <a href="faq.html" class="text-white hover:text-orange hover:bg-white/5 text-sm font-medium py-3 px-3 rounded-lg transition-colors block">FAQ</a>
+      <a href="mailto:info@thepageafrica.org" class="mt-3 text-white text-sm font-bold py-3 px-3 rounded-xl text-center block" style="background:#2B7EC4">Contact Us →</a>
+    </div>
+  </nav>
+
+    <!-- PAGE HEADER -->
+    <div style="background:#0E1E3A" class="px-[4%] py-16">
+      <div class="max-w-6xl mx-auto">
+        <span class="text-[0.7rem] font-bold tracking-[2px] uppercase text-orange mb-3 block">About Us</span>
+        <h1 class="font-display text-3xl md:text-5xl font-black text-white leading-tight">Who We Are &amp; What We Stand For.</h1>
+      </div>
+    </div>
+
+    <!-- STORY -->
+    <section id="story" class="py-20 px-[4%] bg-white scroll-mt-20">
+      <div class="max-w-6xl mx-auto">
+        <div class="mission-line w-16 mb-10"></div>
+        <div class="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-10 items-start mb-12">
+          <div class="flex flex-col items-center text-center">
+            <div class="w-48 h-48 rounded-2xl overflow-hidden shadow-lg mb-3" style="border:4px solid rgba(201,48,122,.2)">
+              <img src="img/team/Executive Director.JPG" alt="Comfort Daniel" class="w-full h-full object-cover object-top" />
+            </div>
+            <div class="font-bold text-sm text-navy">Comfort Daniel</div>
+            <div class="text-xs text-gray-400 leading-snug mt-1">Executive Director<br />Clinical Psychologist &amp; Youth Advocate</div>
+          </div>
+          <div>
+            <h2 class="font-display text-xl font-bold text-navy mb-4">Our Story</h2>
+            <p class="text-gray-600 text-base leading-relaxed mb-4">PAGE Africa was born out of a stark observation: brilliant African students were failing, not because of lack of intelligence, but because of unaddressed mental health pressures and a lack of structured career support.</p>
+            <p class="text-gray-600 text-base leading-relaxed mb-4">Our founder, <strong class="text-navy">Comfort Daniel</strong>, a clinical psychologist and youth advocate, saw this gap firsthand and decided to act. She built PAGE Africa around a simple but radical belief: <em>mental wellness is not separate from academic and career success. It is the foundation of it.</em></p>
+            <p class="text-gray-600 text-base leading-relaxed">Today, PAGE Africa provides the human infrastructure that helps students stay whole while they chase their dreams — across campuses, communities, and careers throughout the continent.</p>
+          </div>
+        </div>
+
+        <!-- Vision & Mission -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div class="rounded-2xl p-7 relative overflow-hidden" style="background:#0E1E3A">
+            <div class="absolute -bottom-8 -right-8 w-32 h-32 rounded-full blur-2xl pointer-events-none" style="background:rgba(201,48,122,.2)"></div>
+            <div class="text-xs font-bold tracking-widest uppercase text-orange mb-3">Our Vision</div>
+            <p class="text-white/90 text-sm leading-relaxed">An Africa driven by a generation of resilient and successful youth, grounded in holistic wellbeing, excelling in meaningful careers, and empowered by equitable access to opportunities, to build a more prosperous and innovative continent.</p>
+          </div>
+          <div class="rounded-2xl p-7" style="background:linear-gradient(135deg,rgba(201,48,122,.08),rgba(244,136,10,.08));border:1px solid rgba(201,48,122,.2)">
+            <div class="text-xs font-bold tracking-widest uppercase mb-3" style="color:#C9307A">Our Mission</div>
+            <p class="text-navy text-sm leading-relaxed font-medium">Empowering African students to become resilient leaders through holistic wellness support, strategic career guidance &amp; access to global opportunities.</p>
+          </div>
+        </div>
+
+        <!-- Who We Serve -->
+        <div class="bg-[#F5F4F1] rounded-2xl p-7 mb-12">
+          <div class="text-xs font-bold tracking-widest uppercase text-gray-400 mb-4">Who We Serve</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="flex items-start gap-3"><span class="mt-1 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 text-white" style="background:#2B7EC4">✓</span><span class="text-gray-600 text-sm">Undergraduate students across the African continent</span></div>
+            <div class="flex items-start gap-3"><span class="mt-1 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 text-white" style="background:#2B7EC4">✓</span><span class="text-gray-600 text-sm">Recent graduates navigating the transition into the workforce</span></div>
+            <div class="flex items-start gap-3"><span class="mt-1 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 text-white" style="background:#2B7EC4">✓</span><span class="text-gray-600 text-sm">Early-career professionals committed to personal development</span></div>
+            <div class="flex items-start gap-3"><span class="mt-1 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 text-white" style="background:#2B7EC4">✓</span><span class="text-gray-600 text-sm">Educators passionate about holistic student support</span></div>
+            <div class="flex items-start gap-3"><span class="mt-1 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 text-white" style="background:#2B7EC4">✓</span><span class="text-gray-600 text-sm">Youth not in education, employment or training</span></div>
+          </div>
+        </div>
+
+        <!-- Funding -->
+        <div class="rounded-xl px-6 py-4 flex items-start gap-4" style="background:rgba(14,30,58,.05);border:1px solid rgba(14,30,58,.1)">
+          <span class="text-xl mt-0.5">🏦</span>
+          <p class="text-gray-600 text-sm leading-relaxed"><strong class="text-navy">Funding &amp; Transparency:</strong> PAGE Africa is supported through a combination of local and global grants, strategic partnerships, and community-led contributions. We maintain strict financial transparency to ensure all resources are directed toward scaling our impact across the continent.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHALLENGE -->
+    <section id="challenge" class="py-20 px-[4%] bg-[#F5F4F1] scroll-mt-20">
+      <div class="max-w-6xl mx-auto">
+        <div class="rounded-3xl relative overflow-hidden px-8 md:px-12 py-12" style="background:#0E1E3A">
+          <div class="absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full blur-[60px] pointer-events-none" style="background:rgba(201,48,122,.08)"></div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center relative z-10">
+            <div>
+              <span class="text-[0.7rem] font-bold tracking-[2px] uppercase text-orange mb-3 block">The Problem We Solve</span>
+              <h2 class="font-display text-2xl md:text-3xl font-black text-white leading-tight mb-3">You Aren't Just Facing an Unemployment Crisis.<br />You're Facing a <em class="text-orange">Resilience</em> Crisis.</h2>
+              <p class="text-white/60 text-sm leading-relaxed">Universities teach theory; the digital economy demands execution. Brilliant students are failing — not from lack of intelligence, but from unaddressed pressure and no support system.</p>
+            </div>
+            <div class="rounded-2xl p-8 text-center" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)">
+              <div class="font-display text-7xl font-black text-orange leading-none">8.9%</div>
+              <div class="text-white/50 text-sm mt-3 leading-relaxed">Unemployment rate in Sub-Saharan Africa, not just a statistic, but an epidemic of depression and future anxiety among youth.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="py-20 px-[4%] bg-white scroll-mt-20">
+      <div class="max-w-6xl mx-auto">
+        <span class="text-[0.7rem] font-bold tracking-[2px] uppercase mb-3 block" style="color:#C9307A">Leadership &amp; Team</span>
+        <h2 class="font-display text-3xl md:text-4xl font-black text-navy tracking-tight mb-6">The People Behind PAGE Africa.</h2>
+
+        <!-- Advisory Board -->
+        <div class="rounded-r-xl pl-5 py-5 pr-6 mb-8" style="background:#F5F4F1;border-left:4px solid #2B7EC4">
+          <p class="text-sm font-bold text-navy mb-1">Advisory Board</p>
+          <p class="text-sm text-gray-500 mb-6">Guiding our governance with decades of experience in clinical health, finance, operations, education and global development.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+            <!-- Advisory 1: Feyipitan Sadiku -->
+            <div class="fade-up advisory-card bg-white rounded-2xl p-5 flex flex-col items-center text-center border border-gray-100 hover:border-blue hover:-translate-y-1 transition-all cursor-pointer" onclick="openBio('feyipitan')">
+              <div class="w-24 h-24 rounded-full overflow-hidden mb-3 border-2 border-gray-100 bg-gray-100 flex items-center justify-center">
+                <img src="img/team/advisory/Feyipitan Sadiku.jpg" alt="Feyipitan Sadiku"
+                  class="w-full h-full object-cover object-top"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                <div class="w-full h-full hidden items-center justify-center text-2xl font-black text-white rounded-full" style="background:linear-gradient(135deg,#2B7EC4,#1A9E8F)">FS</div>
+              </div>
+              <div class="font-bold text-sm text-navy mb-1">Feyipitan Sadiku</div>
+              <div class="text-xs text-gray-400 leading-snug mb-3">PhD Student &amp; Founder, Cheat Codes to Career</div>
+              <span class="text-xs font-semibold" style="color:#2B7EC4">Read Bio →</span>
+            </div>
+
+            <!-- Advisory 2: Sam Nnanna -->
+            <div class="fade-up advisory-card bg-white rounded-2xl p-5 flex flex-col items-center text-center border border-gray-100 hover:border-blue hover:-translate-y-1 transition-all cursor-pointer" onclick="openBio('sam')">
+              <div class="w-24 h-24 rounded-full overflow-hidden mb-3 border-2 border-gray-100 bg-gray-100 flex items-center justify-center">
+                <img src="img/team/advisory/Sam Nnanna.jpg" alt="Sam Nnanna, FCA"
+                  class="w-full h-full object-cover object-top"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                <div class="w-full h-full hidden items-center justify-center text-2xl font-black text-white rounded-full" style="background:linear-gradient(135deg,#C9307A,#F4880A)">SN</div>
+              </div>
+              <div class="font-bold text-sm text-navy mb-1">Sam Nnanna, FCA</div>
+              <div class="text-xs text-gray-400 leading-snug mb-3">Director of Finance, Grants &amp; Compliance · Plan International</div>
+              <span class="text-xs font-semibold" style="color:#2B7EC4">Read Bio →</span>
+            </div>
+
+            <!-- Advisory 3: Mary-Esther Anele -->
+            <div class="fade-up advisory-card bg-white rounded-2xl p-5 flex flex-col items-center text-center border border-gray-100 hover:border-blue hover:-translate-y-1 transition-all cursor-pointer" onclick="openBio('maryesther')">
+              <div class="w-24 h-24 rounded-full overflow-hidden mb-3 border-2 border-gray-100 bg-gray-100 flex items-center justify-center">
+                <img src="img/team/advisory/Mary-Esther Anele.jpg" alt="Mary-Esther Anele"
+                  class="w-full h-full object-cover object-top"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                <div class="w-full h-full hidden items-center justify-center text-2xl font-black text-white rounded-full" style="background:linear-gradient(135deg,#1A9E8F,#2B7EC4)">MA</div>
+              </div>
+              <div class="font-bold text-sm text-navy mb-1">Mary-Esther Anele</div>
+              <div class="text-xs text-gray-400 leading-snug mb-3">Founder &amp; Product Marketing Manager · InclusivelyRemote</div>
+              <span class="text-xs font-semibold" style="color:#2B7EC4">Read Bio →</span>
+            </div>
+
+          </div>
+        </div>
+
+        <p class="text-[0.7rem] font-bold tracking-[2px] uppercase text-gray-400 mb-5">Executive Team</p>
+
+        <!-- Comfort Daniel featured -->
+        <div class="rounded-2xl p-8 flex flex-col sm:flex-row items-center gap-6 mb-6" style="background:linear-gradient(135deg,#C9307A,#a8245f)">
+          <img src="img/team/Executive Director.JPG" alt="Comfort Daniel" class="w-28 h-28 rounded-full object-cover object-top flex-shrink-0" style="border:3px solid rgba(255,255,255,.3)" />
+          <div>
+            <div class="font-bold text-lg text-white mb-1">Comfort Daniel</div>
+            <div class="text-sm mb-2" style="color:rgba(255,255,255,.75)">Executive Director · Clinical Psychologist &amp; Youth Advocate</div>
+            <p class="text-xs leading-relaxed" style="color:rgba(255,255,255,.6)">Founder of PAGE Africa — built this community around the belief that mental wellness is the foundation of academic and career success.</p>
+          </div>
+        </div>
+
+        <!-- Team grid — 4 cols, 2 rows of 4 = 8 members -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+
+          <div class="fade-up bg-white border border-gray-200 rounded-2xl p-5 flex flex-col items-center text-center hover:border-blue hover:-translate-y-1 transition-all">
+            <img src="img/team/Operations Lead.jpg" alt="" class="w-28 h-28 rounded-full object-cover object-top mb-3 border-2 border-gray-100" />
+            <div class="font-bold text-sm text-navy mb-1">Olamide Olabode</div>
+            <div class="text-xs text-gray-400">Operations Lead</div>
+          </div>
+
+          <div class="fade-up bg-white border border-gray-200 rounded-2xl p-5 flex flex-col items-center text-center hover:border-blue hover:-translate-y-1 transition-all">
+            <img src="img/team/Programs Lead.jpg" alt="" class="w-28 h-28 rounded-full object-cover object-top mb-3 border-2 border-gray-100" />
+            <div class="font-bold text-sm text-navy mb-1">Deborah Fakan</div>
+            <div class="text-xs text-gray-400">Programs Lead</div>
+          </div>
+
+          <div class="fade-up bg-white border border-gray-200 rounded-2xl p-5 flex flex-col items-center text-center hover:border-blue hover:-translate-y-1 transition-all">
+            <img src="img/team/Partnerships and Grants Lead.JPG" alt="" class="w-28 h-28 rounded-full object-cover object-top mb-3 border-2 border-gray-100" />
+            <div class="font-bold text-sm text-navy mb-1">Precious Amiara</div>
+            <div class="text-xs text-gray-400">Partnerships &amp; Grants Lead</div>
+          </div>
+
+          <div class="fade-up bg-white border border-gray-200 rounded-2xl p-5 flex flex-col items-center text-center hover:border-blue hover:-translate-y-1 transition-all">
+            <img src="img/team/Media & Com Lead.png" alt="" class="w-28 h-28 rounded-full object-cover object-top mb-3 border-2 border-gray-100" />
+            <div class="font-bold text-sm text-navy mb-1">Basirat Onilenla</div>
+            <div class="text-xs text-gray-400">Media &amp; Communications Lead</div>
+          </div>
+
+          <div class="fade-up bg-white border border-gray-200 rounded-2xl p-5 flex flex-col items-center text-center hover:border-blue hover:-translate-y-1 transition-all">
+            <img src="img/team/Ass Media and Communication Lead.jpg" alt="" class="w-28 h-28 rounded-full object-cover object-top mb-3 border-2 border-gray-100" />
+            <div class="font-bold text-sm text-navy mb-1">Skila Mardotilah</div>
+            <div class="text-xs text-gray-400">Asst. Media &amp; Communications Lead</div>
+          </div>
+
+          <div class="fade-up bg-white border border-gray-200 rounded-2xl p-5 flex flex-col items-center text-center hover:border-blue hover:-translate-y-1 transition-all">
+            <img src="img/team/Community Engagement Lead.JPG" alt="" class="w-28 h-28 rounded-full object-cover object-top mb-3 border-2 border-gray-100" />
+            <div class="font-bold text-sm text-navy mb-1">Ololade Lovelyn</div>
+            <div class="text-xs text-gray-400">Community Engagement Lead</div>
+          </div>
+
+          <div class="fade-up bg-white border border-gray-200 rounded-2xl p-5 flex flex-col items-center text-center hover:border-blue hover:-translate-y-1 transition-all">
+            <img src="img/team/Campus Network Director.JPG" alt="" class="w-28 h-28 rounded-full object-cover object-top mb-3 border-2 border-gray-100" />
+            <div class="font-bold text-sm text-navy mb-1">Damilola Oseni</div>
+            <div class="text-xs text-gray-400">Campus Network Director · Clinical Psychologist &amp; Creative Director</div>
+          </div>
+
+          <div class="fade-up bg-white border border-gray-200 rounded-2xl p-5 flex flex-col items-center text-center hover:border-blue hover:-translate-y-1 transition-all">
+            <img src="img/team/Research and Advocacy Lead.jpg" alt="" class="w-28 h-28 rounded-full object-cover object-top mb-3 border-2 border-gray-100" />
+            <div class="font-bold text-sm text-navy mb-1">Olayinka Modede</div>
+            <div class="text-xs text-gray-400">Research &amp; Advocacy Lead</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="px-[4%] pt-12 pb-6" style="background:#0E1E3A;color:rgba(255,255,255,.55)">
+      <div class="max-w-6xl mx-auto mb-10">
+        <p class="text-center text-[0.65rem] font-bold tracking-[2px] uppercase mb-6" style="color:rgba(255,255,255,.2)">Trusted Partners</p>
+        <div class="flex justify-center items-center gap-6 flex-wrap mb-8">
+          <img src="img/logo-trustedpartner/IMG_4472.JPG" alt="Partner" class="h-10 w-auto object-contain rounded-md opacity-60 hover:opacity-100 transition-opacity" />
+          <img src="img/logo-trustedpartner/IMG_4477.PNG" alt="Partner" class="h-10 w-auto object-contain rounded-md opacity-60 hover:opacity-100 transition-opacity" />
+          <img src="img/logo-trustedpartner/IMG_4478.JPG" alt="Partner" class="h-10 w-auto object-contain rounded-md opacity-60 hover:opacity-100 transition-opacity" />
+          <img src="img/logo-trustedpartner/IMG_4479.JPG" alt="Partner" class="h-10 w-auto object-contain rounded-md opacity-60 hover:opacity-100 transition-opacity" />
+          <img src="img/logo-trustedpartner/IMG_4480.PNG" alt="Partner" class="h-10 w-auto object-contain rounded-md opacity-60 hover:opacity-100 transition-opacity" />
+        </div>
+        <p class="text-center text-[0.65rem] font-bold tracking-[2px] uppercase mb-6" style="color:rgba(255,255,255,.2)">Recognized &amp; Supported By</p>
+        <div class="flex justify-center items-center gap-8 flex-wrap mb-10">
+          <img src="img/logo-partner/IMG_4493.JPG" alt="Partner" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity" />
+          <img src="img/logo-partner/IMG_4494.JPG" alt="Partner" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity" />
+          <img src="img/logo-partner/IMG_4495.PNG" alt="Partner" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity" />
+          <img src="img/logo-partner/IMG_4496.JPG" alt="Partner" class="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity" />
+        </div>
+      </div>
+      <div class="max-w-6xl mx-auto pt-8 flex flex-wrap justify-between gap-10 mb-8" style="border-top:1px solid rgba(255,255,255,.07)">
+        <div>
+          <a href="index.html"><img src="img/pageafrica.png" alt="PAGE Africa" class="h-10 w-auto brightness-0 invert mb-3" /></a>
+          <p class="text-xs max-w-[220px] leading-relaxed">Empowering African youth through career readiness and mental wellness — together.</p>
+        </div>
+        <div>
+          <p class="text-[0.65rem] font-bold tracking-[2px] uppercase mb-3" style="color:rgba(255,255,255,.25)">Navigate</p>
+          <div class="flex flex-col gap-2 text-xs">
+            <a href="about.html" class="hover:text-blue-300 transition-colors" style="color:rgba(255,255,255,.45)">About</a>
+            <a href="programs.html" class="hover:text-blue-300 transition-colors" style="color:rgba(255,255,255,.45)">Programs</a>
+            <a href="involved.html" class="hover:text-blue-300 transition-colors" style="color:rgba(255,255,255,.45)">Get Involved</a>
+            <a href="impact.html" class="hover:text-blue-300 transition-colors" style="color:rgba(255,255,255,.45)">Impact</a>
+            <a href="faq.html" class="hover:text-blue-300 transition-colors" style="color:rgba(255,255,255,.45)">FAQ</a>
+          </div>
+        </div>
+        <div>
+          <p class="text-[0.65rem] font-bold tracking-[2px] uppercase mb-3" style="color:rgba(255,255,255,.25)">Contact</p>
+          <a href="mailto:info@thepageafrica.org" class="text-sm transition-colors block mb-4 hover:text-blue-300" style="color:rgba(255,255,255,.55)">info@thepageafrica.org</a>
+          <div class="flex gap-2 flex-wrap">
+            <a href="https://ng.linkedin.com/company/pageafricainitiative" class="text-xs px-3 py-1.5 rounded-md transition-all hover:text-white" style="color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.15)">LinkedIn</a>
+            <a href="https://www.instagram.com/thepageafrica/" class="text-xs px-3 py-1.5 rounded-md transition-all hover:text-white" style="color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.15)">Instagram</a>
+            <a href="https://x.com/thepageafrica/" class="text-xs px-3 py-1.5 rounded-md transition-all hover:text-white" style="color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.15)">X</a>
+            <a href="https://www.tiktok.com/thepageafrica/" class="text-xs px-3 py-1.5 rounded-md transition-all hover:text-white" style="color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.15)">TikTok</a>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-6xl mx-auto pt-5 flex flex-wrap justify-between gap-3 text-[0.72rem]" style="border-top:1px solid rgba(255,255,255,.07)">
+        <span>© 2026 PAGE Youth Development Initiative. All rights reserved.</span>
+        <span class="px-3 py-1 rounded-md" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)">✓ Registered with the Corporate Affairs Commission (CAC)</span>
+      </div>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if(hamburger){ hamburger.addEventListener('click',()=>{ mobileMenu.classList.toggle('hidden'); mobileMenu.classList.toggle('flex'); }); }
+      const aboutBtn = document.getElementById('about-btn');
+      const aboutDropdown = document.getElementById('about-dropdown');
+      if(aboutBtn && aboutDropdown){
+        aboutBtn.addEventListener('click', function(e){ e.preventDefault(); aboutDropdown.classList.toggle('open'); });
+        document.addEventListener('click', function(e){ if(!aboutBtn.contains(e.target) && !aboutDropdown.contains(e.target)) aboutDropdown.classList.remove('open'); });
+      }
+      function toggleMobileAbout(){
+        const sub=document.getElementById('mobile-about-sub'), arrow=document.getElementById('mobile-about-arrow');
+        if(!sub) return;
+        sub.classList.toggle('open');
+        if(arrow) arrow.style.transform=sub.classList.contains('open')?'rotate(180deg)':'';
+      }
+      const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});
+      document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+      // Auto-detect active nav link
+      (function() {
+        const page = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('nav ul li a').forEach(function(a) {
+          const href = (a.getAttribute('href') || '').split('#')[0].split('/').pop() || 'index.html';
+          if (href === page) {
+            a.classList.add('nav-active');
+          } else {
+            a.classList.remove('nav-active');
+          }
+        });
+      })();
+    </script>
+    <!-- BIO MODAL -->
+  <div class="bio-modal-overlay" id="bio-modal-overlay" onclick="closeBioModal(event)">
+    <div class="bio-modal" style="position:relative">
+      <button class="bio-modal-close" onclick="closeBioModal()">✕</button>
+      <div class="bio-modal-header">
+        <div id="modal-photo" class="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 border-2 border-gray-100"></div>
+        <div style="padding-top:4px">
+          <div id="modal-name" class="font-display text-lg font-black text-navy mb-0.5"></div>
+          <div id="modal-title" class="text-xs text-gray-400 leading-snug"></div>
+        </div>
+      </div>
+      <div class="bio-modal-body">
+        <div style="background:linear-gradient(90deg,#2B7EC4,#1A9E8F);height:3px;border-radius:2px;width:40px;margin-bottom:16px"></div>
+        <div id="modal-bio" class="text-gray-600 text-sm leading-relaxed space-y-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .bio-modal-overlay { display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,.55); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:20px; }
+    .bio-modal-overlay.open { display:flex; }
+    .bio-modal { background:#fff; border-radius:24px; max-width:540px; width:100%; max-height:90vh; overflow-y:auto; box-shadow:0 24px 64px rgba(0,0,0,.25); animation:modalIn .25s ease; }
+    @keyframes modalIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
+    .bio-modal-header { padding:28px 28px 0; display:flex; gap:16px; align-items:flex-start; }
+    .bio-modal-body { padding:20px 28px 28px; }
+    .bio-modal-close { position:absolute; top:16px; right:16px; width:32px; height:32px; border-radius:50%; border:none; cursor:pointer; background:rgba(0,0,0,.07); color:#666; font-size:1rem; display:flex; align-items:center; justify-content:center; transition:background .15s; }
+    .bio-modal-close:hover { background:rgba(0,0,0,.15); }
+    #modal-bio p { margin-bottom:12px; }
+    #modal-bio p:last-child { margin-bottom:0; }
+  </style>
+
+  <script>
+    const bios = {
+      feyipitan: {
+        name: 'Feyipitan Sadiku',
+        title: 'PhD Student & Founder, Cheat Codes to Career',
+        photo: 'img/team/advisory/Feyipitan Sadiku.jpg',
+        initials: 'FS',
+        color: 'linear-gradient(135deg,#2B7EC4,#1A9E8F)',
+        bio: [
+          'Feyipitan Sadiku is a PhD student in Learning Experience Design and Technology at the University of Oklahoma, driven to democratize access to global educational and career opportunities for African youth. With over five years of experience in student-facing roles, she addresses the gaps in skills acquisition and career exploration for marginalized students.',
+          'As Community Engagement Lead at GetIn Edu, she supported 1,000+ students in achieving their study-abroad goals by translating complex processes into actionable resources and workshops. At Illinois State University, she supported 100+ students of the Hope Chicago at ISU program through targeted interventions. Her work supporting foster youth earned her the First Star National Peer Mentor Award in 2024.',
+          'In April 2025, she launched the Cheat Codes to Career program, equipping African undergraduate students with practical skills and tools for career exploration. Her research focuses on designing scalable career development programs using instructional design principles.'
+        ]
+      },
+      sam: {
+        name: 'Sam Nnanna, FCA',
+        title: 'Director of Finance, Grants & Compliance · Plan International',
+        photo: 'img/team/advisory/Sam Nnanna.jpg',
+        initials: 'SN',
+        color: 'linear-gradient(135deg,#C9307A,#F4880A)',
+        bio: [
+          'Sam is an accomplished finance executive with over 18 years of progressive experience in financial management, including more than 12 years in senior leadership roles across development and humanitarian organizations operating in complex environments. He currently serves as Director of Finance, Grants & Compliance at Plan International Nigeria, where he provides strategic leadership on financial stewardship, grants management, donor compliance, governance, and organizational accountability.',
+          'Prior to this role, Sam held several senior leadership positions at CBM International, including Global Team Lead – Financial Planning & Analysis, Regional Finance Comptroller for West and Central Africa, and Country Finance Manager for Nigeria. He also served as Head of Finance at ActionAid Nigeria and held finance management roles at Helen Keller International and Mercy Corps Nigeria.',
+          'Sam is widely recognized for his expertise in strategic financial leadership, grants management, donor compliance, financial systems strengthening, and organizational transformation. Throughout his career, he has successfully managed complex multi-donor portfolios, improved financial controls, enhanced cost recovery, strengthened accountability frameworks, and supported organizations in delivering high-quality donor reporting and sustainable operational growth.',
+          'He is a Fellow of the Institute of Chartered Accountants of Nigeria and holds a Master of Business Administration (MBA) and a Bachelor of Science degree in Accounting. He is also an alumnus of the London School of Business and Finance with certifications in Project Management and Leadership Development.'
+        ]
+      },
+      maryesther: {
+        name: 'Mary-Esther Anele',
+        title: 'Founder & Product Marketing Manager · InclusivelyRemote',
+        photo: 'img/team/advisory/Mary-Esther Anele.jpg',
+        initials: 'MA',
+        color: 'linear-gradient(135deg,#1A9E8F,#2B7EC4)',
+        bio: [
+          'Mary-Esther Anele is a Lawyer, entrepreneur, and 2x founder building impactful solutions at the intersection of remote work, career development, and technology. Passionate about workforce innovation and human-centered products, she is committed to helping professionals unlock global opportunities and thrive in the future of work.',
+          'As the founder of InclusivelyRemote, Mary-Esther is bridging the gap between top talent and remote career opportunities by creating access to inclusive, global employment pathways. Through her second venture, CareerswithMary, she has successfully helped 100+ professionals secure competitive roles through personalized career services.',
+          "Beyond entrepreneurship, Mary-Esther is a recognized career and education speaker, content creator, and advocate for youth empowerment and professional growth. Her work and leadership have earned her recognition as one of Africa's Top 10 Undergraduate Leaders, and she was featured by Ubuntu Young Leaders Magazine as a leading voice shaping the future of work in Africa."
+        ]
+      }
+    };
+
+    function openBio(key) {
+      const p = bios[key];
+      if (!p) return;
+      document.getElementById('modal-photo').innerHTML =
+        '<img src="' + p.photo + '" alt="' + p.name + '" style="width:100%;height:100%;object-fit:cover;object-position:top" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">' +
+        '<div style="width:100%;height:100%;display:none;align-items:center;justify-content:center;font-size:1.5rem;font-weight:900;color:#fff;background:' + p.color + '">' + p.initials + '</div>';
+      document.getElementById('modal-name').textContent = p.name;
+      document.getElementById('modal-title').textContent = p.title;
+      document.getElementById('modal-bio').innerHTML = p.bio.map(function(t){ return '<p>' + t + '</p>'; }).join('');
+      document.getElementById('bio-modal-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBioModal(e) {
+      if (e && e.target !== document.getElementById('bio-modal-overlay')) return;
+      document.getElementById('bio-modal-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { document.getElementById('bio-modal-overlay').classList.remove('open'); document.body.style.overflow = ''; } });
+  </script>
+
+</body>
+</html>
